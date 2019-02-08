@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="zh-CN"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="description" content="description of your site" />
+    <meta name="author" content="author of the site" />
+    <title>faculty_homepage</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.css" />
+    <link rel="stylesheet" href="../static/css/bootstrap-responsive.css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic" />
+    <link rel="stylesheet" href="../static/css/styles.css" />
+    <link rel="stylesheet" href="../static/css/toastr.css" />
+    <link rel="stylesheet" href="../static/css/fullcalendar.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="../static/js/bootstrap.js"></script>
+    <script src="../static/js/jquery.knob.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="../static/js/jquery.sparkline.min.js"></script>
+    <script src="../static/js/toastr.js"></script>
+    <script src="../static/js/jquery.tablesorter.min.js"></script>
+    <script src="../static/js/jquery.peity.min.js"></script>
+    <script src="../static/js/fullcalendar.min.js"></script>
+    <script src="../static/js/gcal.js"></script>
+    <script src="../static/js/setup.js"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+  </head>
+<style>
+        html,body{text-align:center;margin:0px auto;}
+</style>
+<body>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+<div id="in-nav">
+      <div class="container">
+        <div class="row">
+          <div class="span12">
+            <ul class="pull-right">
+
+              <li><a href="/login"><font color = "black">Logout</font></a></li>
+            </ul><a id="logo" href="/admin_homepage">
+              <h4 align="left">COURSE<strong>Admin</strong></h4></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="in-sub-nav">
+      <div class="container">
+        <div class="row">
+          <div class="span12">
+            <ul>
+                <li><a href="/admin_homepage"><i class="batch home"></i><br />Back</a></li>
+                <li><a href="/admin_enroll_student"><i class="batch quill"></i><br />Enroll Student</a></li>
+                <li><a href="/admin_verify"><i class="batch stream"></i><br />Verify Faculty</a></li>
+                <li><a href="/admin_report1"><i class="batch forms"></i><br />Report1</a></li>
+                <li><a href="/admin_report2"><i class="batch forms"></i><br />Report2</a></li>
+                <li><a href="/admin_report3"><i class="batch forms"></i><br />Report3</a></li>
+                <li><a href="/admin_report4"><i class="batch forms"></i><br />Report4</a></li>
+                <li><a href="/admin_report5"><i class="batch forms"></i><br />Report5</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+<div class="page">
+    <div class="page-container">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <h3 class="header">Mark Course Material as Completed</h3>
+                    <form method = 'post' enctype="multipart/form-data">{% csrf_token %}
+                        {{userform.as_p}}
+                    <input type="submit" class="btn pull-center" value = " SUBMIT " />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+ <footer>
+      <div class="container">
+        <div class="row">
+          <div class="span12">
+            <p class="pull-right">by Group 4</p>
+
+          </div>
+        </div>
+      </div>
+    </footer>
+
+</body>
+</html>
